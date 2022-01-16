@@ -8,9 +8,9 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 $usersIP=$_SERVER['REMOTE_ADDR'];
 
 $IP = curl_init();
-
+//Create the free open API Key from api.freegeoip and replace where there is **********
 curl_setopt_array($IP, array(
-  CURLOPT_URL => 'https://api.freegeoip.app/json/'.$usersIP.'?apikey=c8a369a0-3426-11ec-998c-473b46832dcc',
+  CURLOPT_URL => 'https://api.freegeoip.app/json/'.$usersIP.'?apikey=******************************',
   CURLOPT_RETURNTRANSFER => true,
 ),
 );
@@ -72,7 +72,7 @@ echo "</center>";
         </div>
      
         
-  <form action="<?PHP echo ($_SERVER['PHP_SELF']); ?>"; method="POST" ">
+  <form action="<?PHP echo ($_SERVER['PHP_SELF']); ?>"; method="POST">
     <h3>IP TRACKING</h3>
     <h4>TRACK USER</h4>
         <input type="text" name="IP" id="name" value="<?php echo 'Your IP ADDRESS IS: '.$usersIP; ?>" placeholder="Your IPV4/IPV6 will show here" readonly ></br>
