@@ -5,12 +5,13 @@ $ipDataObject['longitude']="";
 if($_SERVER['REQUEST_METHOD']=="POST"){
 
 //Get users IP Address
-$usersIP=$_SERVER['REMOTE_ADDR'];
+$usersIP= '**********';//$_SERVER['REMOTE_ADDR'];
+$access_key = '**********';
 
 $IP = curl_init();
 //Create the free open API Key from https://freegeoip.io/ or https://ipstack.com/ and replace where there is **********
 curl_setopt_array($IP, array(
-  CURLOPT_URL => 'https://api.freegeoip.app/json/'.$usersIP.'?apikey=******************************',
+  CURLOPT_URL => "http://api.ipstack.com/$usersIP?access_key=$access_key",
   CURLOPT_RETURNTRANSFER => true,
 ),
 );
@@ -30,10 +31,10 @@ if(empty($ipDataObject)==false){
     echo "Region Name: " .$ipDataObject['region_name']."<br>";
     echo "Region code: " .$ipDataObject['region_code']."<br>";
     echo "Country City: ".$ipDataObject['city']."<br>";
-    echo "Zip Code: " .$ipDataObject['zip_code']."<br>";
+    echo "Zip Code: " .$ipDataObject['zip']."<br>";
     echo "Latitude: " .$ipDataObject['latitude']."<br>";
-    echo "Longitude: " .$ipDataObject['longitude']."<br>";
-    echo "Timezone: " .$ipDataObject['time_zone']."<br><br>";
+    echo "Longitude: " .$ipDataObject['longitude']."<br><br>";
+   
     echo "Your Public IP Address is: ".$usersIP;
     
     
