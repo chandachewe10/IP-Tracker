@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 $usersIP=$_SERVER['REMOTE_ADDR'];
 
 $IP = curl_init();
-//Create the free open API Key from https://freegeoip.io/ and replace where there is **********
+//Create the free open API Key from https://freegeoip.io/ or https://ipstack.com/ and replace where there is **********
 curl_setopt_array($IP, array(
   CURLOPT_URL => 'https://api.freegeoip.app/json/'.$usersIP.'?apikey=******************************',
   CURLOPT_RETURNTRANSFER => true,
